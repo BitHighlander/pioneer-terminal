@@ -1,6 +1,8 @@
-import { noCacheApolloClient } from '@/utils/apollo';
+import { createApolloClient, defaultOptions } from '@/utils/apollo';
+import { BASE_GRAPHQL_URL, ETH_GRAPHQL_URL } from '@/utils/constants';
 import { gql } from '@apollo/client';
 import { Address } from 'viem';
+import { base } from 'viem/chains';
 
 export type Proposal = {
   proposalId: Address;
@@ -14,7 +16,7 @@ export type Proposal = {
   snapshotBlockNumber: number;
   status: string;
   title: string;
-  transactionHash: Address
+  transactionHash: Address;
   voteEnd: string;
   voteStart: string;
   calldatas: string;
@@ -35,7 +37,6 @@ export type Proposal = {
   };
   votes: Vote[];
 };
-
 
 export type ProposalWithThumbnail = Proposal & {
   thumbnail?: string;
@@ -103,12 +104,17 @@ export async function fetchProposals(
   first: number,
   where: object = {},
   showDescription: boolean = false,
-  showThumbnail: boolean = false
+  showThumbnail: boolean = false,
+  chainId: number = base.id
 ): Promise<ProposalWithThumbnail[]> {
   const _where = { dao: address.toLocaleLowerCase(), ...where };
 
   try {
-    let { data } = await noCacheApolloClient.query({
+    const apolloClient = createApolloClient(
+      defaultOptions,
+      chainId == base.id ? BASE_GRAPHQL_URL : ETH_GRAPHQL_URL
+    );
+    let { data } = await apolloClient.query({
       query: GET_DATA,
       variables: {
         where: _where,

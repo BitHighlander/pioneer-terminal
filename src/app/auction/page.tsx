@@ -6,7 +6,7 @@ import {
   useWriteAuctionCreateBid,
   useWriteAuctionSettleCurrentAndCreateNewAuction,
 } from '@/hooks/wagmiGenerated';
-import { DAO_ADDRESSES } from '@/utils/constants';
+import { BASE_DAO_ADDRESSES } from '@/utils/constants';
 import { toObject } from '@/utils/helpers';
 import { useCallback, useState } from 'react';
 import { parseEther } from 'viem';
@@ -45,8 +45,7 @@ function AuctionPage() {
     useWriteAuctionSettleCurrentAndCreateNewAuction();
   const onClickSettle = useCallback(async () => {
     try {
-      const res = await writeSettle({
-      });
+      const res = await writeSettle({});
       console.log(res);
     } catch (error) {
       console.error(error);
@@ -95,7 +94,7 @@ function AuctionPage() {
 
       <div>
         <h2>DAO Addresses</h2>
-        <pre>{JSON.stringify(DAO_ADDRESSES, null, 2)}</pre>
+        <pre>{JSON.stringify(BASE_DAO_ADDRESSES, null, 2)}</pre>
       </div>
 
       <div>

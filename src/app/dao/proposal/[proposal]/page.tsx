@@ -1,8 +1,12 @@
 import ProposalPageClient from '../ProposalPageClient';
 import { fetchProposals } from '@/app/services/proposal';
-import { DAO_ADDRESSES } from '@/utils/constants';
+import { BASE_DAO_ADDRESSES } from '@/utils/constants';
 
-export default async function ProposalPage({ params }: { params: { proposal: string } }) {
+export default async function ProposalPage({
+  params,
+}: {
+  params: { proposal: string };
+}) {
   const proposalNumber = parseInt(params.proposal, 10);
 
   if (isNaN(proposalNumber)) {
@@ -11,7 +15,7 @@ export default async function ProposalPage({ params }: { params: { proposal: str
 
   // Fetch proposal data
   const proposals = await fetchProposals(
-    DAO_ADDRESSES.token,
+    BASE_DAO_ADDRESSES.token,
     'proposalNumber',
     'asc',
     1,
@@ -25,8 +29,14 @@ export default async function ProposalPage({ params }: { params: { proposal: str
   }
 
   // Fetch the latest proposal for navigation
-  const latestProposals = await fetchProposals(DAO_ADDRESSES.token, 'proposalNumber', 'desc', 1);
-  const latestProposalNumber = latestProposals[0]?.proposalNumber || proposalNumber;
+  const latestProposals = await fetchProposals(
+    BASE_DAO_ADDRESSES.token,
+    'proposalNumber',
+    'desc',
+    1
+  );
+  const latestProposalNumber =
+    latestProposals[0]?.proposalNumber || proposalNumber;
 
   return (
     <ProposalPageClient

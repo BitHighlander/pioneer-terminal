@@ -1,17 +1,33 @@
 import { gql } from '@apollo/client';
-import apolloClient, { noCacheApolloClient } from '@/utils/apollo';
+import apolloClient, {
+  createApolloClient,
+  defaultOptions,
+  noCacheApolloClient,
+} from '@/utils/apollo';
 import { Address } from 'viem';
+import { BASE_GRAPHQL_URL, ETH_GRAPHQL_URL } from '@/utils/constants';
+import { base } from 'viem/chains';
 
 export async function fetchAuction(
   address: string,
   orderBy: string,
   orderDirection: string,
-  first: number
+  first: number,
+  chainId: number = base.id
 ) {
   const where = { dao: address.toLocaleLowerCase() };
 
+  console.log('Fetching auctions for address:', address, chainId);
+
+  console.log({ BASE_GRAPHQL_URL });
+  console.log({ ETH_GRAPHQL_URL });
+
   try {
-    const { data } = (await noCacheApolloClient.query({
+    const apolloClient = createApolloClient(
+      defaultOptions,
+      chainId == base.id ? BASE_GRAPHQL_URL : ETH_GRAPHQL_URL
+    );
+    const { data } = (await apolloClient.query({
       query: GET_DATA,
       variables: {
         where,
@@ -20,7 +36,6 @@ export async function fetchAuction(
         first,
       },
     })) as GraphResponse;
-    console.log('data: ',data)
     return data.auctions;
   } catch (error) {
     throw new Error('Error ao consultar propostas');

@@ -3,23 +3,36 @@ import {
   HttpLink,
   InMemoryCache,
   DefaultOptions,
+  ApolloLink,
 } from '@apollo/client';
-import { GRAPHQL_URL } from './constants';
+import { BASE_GRAPHQL_URL, ETH_GRAPHQL_URL } from './constants';
 
-const createApolloClient = (defaultOptions: DefaultOptions) => {
-  const httpLink = new HttpLink({
-    uri: GRAPHQL_URL,
+const createApolloLink = (uri: string) => {
+  return new HttpLink({
+    uri,
     fetch,
   });
+};
+
+export const createApolloClient = (
+  defaultOptions: DefaultOptions,
+  link?: string
+) => {
+  let apolloLink = createApolloLink(link ? link : BASE_GRAPHQL_URL);
+  console.log(apolloLink);
+  // const httpLink = new HttpLink({
+  //   uri: BASE_GRAPHQL_URL,
+  //   fetch,
+  // });
 
   return new ApolloClient({
-    link: httpLink,
+    link: apolloLink,
     cache: new InMemoryCache(),
     defaultOptions,
   });
 };
 
-const defaultOptions: DefaultOptions = {
+export const defaultOptions: DefaultOptions = {
   watchQuery: {
     fetchPolicy: 'no-cache',
     errorPolicy: 'ignore',

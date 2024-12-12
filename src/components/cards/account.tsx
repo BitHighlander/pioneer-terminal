@@ -2,9 +2,10 @@
 
 import { Button } from '@/components/ui/button';
 import { Box, Heading, HStack, Text, VStack } from '@chakra-ui/react';
-import { base } from 'viem/chains';
+import { base, mainnet } from 'viem/chains';
 import { useAccount, useConnect, useDisconnect, useSwitchChain } from 'wagmi';
 import { FormattedAddress } from '../utils/ethereum';
+import { useDaoAddress } from '@/providers/daoAddress';
 
 export default function AccountCard() {
   const account = useAccount();
@@ -33,7 +34,16 @@ export default function AccountCard() {
               <Text>chainId: {activeChain?.id}</Text>
             </VStack>
             <HStack gap={2}>
-              {activeChain?.id !== base.id && (
+              {activeChain?.id == base.id ? (
+                <Button
+                  size={'xs'}
+                  colorPalette={'blue'}
+                  variant={'subtle'}
+                  onClick={() => switchChain({ chainId: mainnet.id })}
+                >
+                  Switch to Mainnet
+                </Button>
+              ) : (
                 <Button
                   size={'xs'}
                   colorPalette={'blue'}

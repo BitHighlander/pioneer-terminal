@@ -1,9 +1,7 @@
 'use client';
 
-import {
-  useWriteAuctionCreateBid,
-  useWriteAuctionSettleCurrentAndCreateNewAuction,
-} from '@/hooks/wagmiGenerated';
+import { auctionAbi } from '@/hooks/wagmiGenerated';
+import { useDaoAddress } from '@/providers/daoAddress';
 import { convertSparksToEth } from '@/utils/spark';
 import { Button, Link as ChakraLink, HStack, VStack } from '@chakra-ui/react';
 import NextLink from 'next/link';
@@ -11,6 +9,7 @@ import { useCallback, useState } from 'react';
 import { LuExternalLink } from 'react-icons/lu';
 import { parseEther } from 'viem';
 import { useAccount } from 'wagmi';
+import { createUseWriteContract } from 'wagmi/codegen';
 import { NumberInputField, NumberInputRoot } from '../ui/number-input';
 import { Tooltip } from '../ui/tooltip';
 
@@ -25,9 +24,16 @@ interface BidProps {
 export function AuctionBid(props: BidProps) {
   const { tokenId, winningBid, isAuctionRunning } = props;
   const [txHash, setTxHash] = useState<string | null>(null);
+  const address = useDaoAddress();
 
   const account = useAccount();
   const [bidValue, setBidValue] = useState('111');
+
+  const useWriteAuctionCreateBid = createUseWriteContract({
+    abi: auctionAbi,
+    address: address.DAO_ADDRESSES.auction,
+    functionName: 'createBid',
+  });
 
   const { writeContractAsync: writeBid } = useWriteAuctionCreateBid();
   const onClickBid = useCallback(async () => {
@@ -46,6 +52,13 @@ export function AuctionBid(props: BidProps) {
       }
     }
   }, [writeBid, bidValue]);
+
+  const useWriteAuctionSettleCurrentAndCreateNewAuction =
+    createUseWriteContract({
+      abi: auctionAbi,
+      address: address.DAO_ADDRESSES.auction,
+      functionName: 'settleCurrentAndCreateNewAuction',
+    });
 
   const { writeContractAsync: writeSettle } =
     useWriteAuctionSettleCurrentAndCreateNewAuction();
