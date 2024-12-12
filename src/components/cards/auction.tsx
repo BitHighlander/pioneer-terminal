@@ -22,11 +22,12 @@ export default async function AuctionCard() {
     'desc',
     1
   );
+  console.log('auctions:',auctions)
   const activeAuction = auctions[0];
-  const isAuctionRunning = parseInt(activeAuction.endTime) * 1000 > Date.now();
+  const isAuctionRunning = parseInt(activeAuction?.endTime || '0') * 1000 > Date.now();
   console.log(
-    activeAuction.endTime,
-    parseInt(activeAuction.endTime) * 1000,
+    activeAuction?.endTime,
+    parseInt(activeAuction?.endTime) * 1000,
     Date.now(),
     isAuctionRunning
   );
@@ -48,17 +49,17 @@ export default async function AuctionCard() {
         w={'full'}
       >
         <VStack align={'stretch'} gap={2} w={'full'}>
-          <Heading as='h2'>Auction #{activeAuction.token.tokenId}</Heading>
-          {activeAuction.highestBid ? (
+          <Heading as='h2'>Auction #{activeAuction?.token.tokenId}</Heading>
+          {activeAuction?.highestBid ? (
             <VStack align={'start'} gap={1}>
               <Text>
                 Highest bid:{' '}
                 <Badge colorPalette={'blue'} variant={'surface'} size={'sm'}>
-                  ✧{weiToSparks(activeAuction.highestBid.amount)}{' '}
+                  ✧{weiToSparks(activeAuction?.highestBid.amount)}{' '}
                 </Badge>
               </Text>
               <FormattedAddress
-                address={activeAuction.highestBid.bidder}
+                address={activeAuction?.highestBid.bidder}
                 textBefore='Highest bidder: '
               />
             </VStack>
@@ -66,10 +67,10 @@ export default async function AuctionCard() {
             <Text>No bids {isAuctionRunning ? 'yet' : ''}</Text>
           )}
           <AuctionBid
-            tokenId={activeAuction.token.tokenId}
+            tokenId={activeAuction?.token.tokenId}
             winningBid={
-              activeAuction.winningBid
-                ? BigInt(activeAuction.winningBid.amount)
+              activeAuction?.winningBid
+                ? BigInt(activeAuction?.winningBid.amount)
                 : 0n
             }
             isAuctionRunning={isAuctionRunning}
@@ -79,8 +80,8 @@ export default async function AuctionCard() {
           <NextImage
             width={1024}
             height={1024}
-            src={activeAuction.token.image}
-            alt={`Auction token id ${activeAuction.token.tokenId}`}
+            src={activeAuction?.token.image}
+            alt={`Auction token id ${activeAuction?.token.tokenId}`}
           />
         </Image>
       </Stack>

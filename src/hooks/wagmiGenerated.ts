@@ -607,7 +607,7 @@ export const auctionAbi = [
 ] as const
 
 export const auctionAddress =
-  '0x494Eaa55ECF6310658B8fC004b0888DCB698097f' as const
+  '0x360E2f3D92d23DE8e5d8A461c2544aAF01eba549' as const
 
 export const auctionConfig = {
   address: auctionAddress,
@@ -1522,7 +1522,7 @@ export const governorAbi = [
 ] as const
 
 export const governorAddress =
-  '0x3dd4e53a232B7B715c9ae455f4e732465eD71b4c' as const
+  '0xe0f821D6CC2ab0d0660023A10340Dc267120C9d4' as const
 
 export const governorConfig = {
   address: governorAddress,
@@ -2386,7 +2386,7 @@ export const tokenAbi = [
 ] as const
 
 export const tokenAddress =
-  '0x880Fb3Cf5c6Cc2d7DFC13a993E839a9411200C17' as const
+  '0x25EF864904d67e912B9eC491598A7E5A066B102F' as const
 
 export const tokenConfig = { address: tokenAddress, abi: tokenAbi } as const
 

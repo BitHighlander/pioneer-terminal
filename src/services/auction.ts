@@ -20,10 +20,10 @@ export async function fetchAuction(
         first,
       },
     })) as GraphResponse;
-
+    console.log('data: ',data)
     return data.auctions;
   } catch (error) {
-    throw new Error('Erro ao consultar propostas');
+    throw new Error('Error ao consultar propostas');
   }
 }
 

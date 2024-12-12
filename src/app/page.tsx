@@ -7,7 +7,6 @@ function App() {
   return (
     <VStack gap={4} align={'start'}>
       <AuctionCard />
-      <ZoraCard />
       <GovernorCard />
     </VStack>
   );

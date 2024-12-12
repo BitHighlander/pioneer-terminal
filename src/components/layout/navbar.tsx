@@ -24,12 +24,12 @@ export default function Navbar() {
       <Link href={'/'}>
         <Stack direction='row' align='center' gap={2}>
           <Image
-            src='https://gnars.com/images/logo.png'
+            src='https://pioneers.dev/coins/pioneerMan.png'
             alt='gnars-terminal'
             boxSize={6}
           />
           <Heading size={{ base: 'xl', md: '2xl' }} as='h1' fontWeight={'bold'}>
-            TermGnar
+            Pioneer Terminal
           </Heading>
         </Stack>
       </Link>
