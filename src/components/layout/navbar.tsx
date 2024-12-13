@@ -19,13 +19,13 @@ export default function Navbar() {
       justify={'space-between'}
       px={4}
       py={2}
-      colorPalette={'yellow'}
+      colorPalette={'green'}
     >
       <Link href={'/'}>
         <Stack direction='row' align='center' gap={2}>
           <Image
             src='https://pioneers.dev/coins/pioneerMan.png'
-            alt='gnars-terminal'
+            alt='pioneer-terminal'
             boxSize={6}
           />
           <Heading size={{ base: 'xl', md: '2xl' }} as='h1' fontWeight={'bold'}>

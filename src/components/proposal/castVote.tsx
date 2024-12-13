@@ -62,7 +62,7 @@ const voteMap = {
   },
   ABSTAIN: {
     label: 'Abstain',
-    color: 'yellow.500',
+    color: 'green.500',
   },
 };
 

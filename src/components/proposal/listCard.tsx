@@ -50,7 +50,7 @@ const ProposalListCard = memo(({ proposal }: ProposalListCardProps) => {
         mb={1}
       >
         <Box bg='green.400' height={`${forPercentage}%`} />
-        <Box bg='yellow.400' height={`${abstainPercentage}%`} />
+        <Box bg='green.400' height={`${abstainPercentage}%`} />
         <Box bg='red.400' height={`${againstPercentage}%`} />
       </Box>
       <VStack gap={1} align={'start'} flex={1}>

@@ -156,7 +156,7 @@ export default function ProposalTransactionsContent({ proposal }: ProposalTransa
                 minW="100%"
                 p={4}
                 rounded="md"
-                _dark={{ borderColor: 'yellow', borderWidth: 1 }}
+                _dark={{ borderColor: 'green', borderWidth: 1 }}
             >
                 <Text>No transactions available for this proposal.</Text>
             </Box>
@@ -170,7 +170,7 @@ export default function ProposalTransactionsContent({ proposal }: ProposalTransa
             minW="100%"
             p={4}
             rounded="md"
-            _dark={{ borderColor: 'yellow', borderWidth: 1 }}
+            _dark={{ borderColor: 'green', borderWidth: 1 }}
             divideY="2px"
             divideColor="gray.300"
         >

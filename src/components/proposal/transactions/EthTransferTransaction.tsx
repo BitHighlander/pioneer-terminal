@@ -36,7 +36,7 @@ const EthTransferTransaction: React.FC<EthTransferTransactionProps> = ({ toAddre
             borderRadius="md"
             shadow="sm"
             p={4}
-            _dark={{ bg: 'gray.800', borderColor: 'yellow.500' }}
+            _dark={{ bg: 'gray.800', borderColor: 'green.500' }}
         >
             <Heading size="sm" mb={4}>
                 Ethereum Transfer

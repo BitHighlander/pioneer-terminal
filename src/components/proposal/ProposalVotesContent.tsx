@@ -43,7 +43,7 @@ export default function ProposalVotesContent({ proposal }: ProposalVotesContentP
                                         : vote.support === "AGAINST"
                                             ? "red.400"
                                             : vote.support === "ABSTAIN"
-                                                ? "yellow.200"
+                                                ? "green.200"
                                                 : "gray"
                                 }
                             >

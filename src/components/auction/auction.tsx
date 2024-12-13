@@ -46,7 +46,7 @@ export default function AuctionClient({
       padding={4}
       rounded={'md'}
       gap={4}
-      _dark={{ borderColor: 'yellow', borderWidth: 1 }}
+      _dark={{ borderColor: 'green', borderWidth: 1 }}
     >
       <Stack
         direction={{ base: 'column', md: 'row' }}

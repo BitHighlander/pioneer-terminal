@@ -96,27 +96,27 @@ const MarkdownRenderers = {
         </td>
     ),
     h1: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
-        <Heading as='h1' size={"4xl"} _dark={{ color: 'yellow.200' }} {...props}>
+        <Heading as='h1' size={"4xl"} _dark={{ color: 'green.200' }} {...props}>
             {props.children}
         </Heading>
     ),
     h2: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
-        <Heading as='h2' size={"3xl"} _dark={{ color: 'yellow.200' }} {...props}>
+        <Heading as='h2' size={"3xl"} _dark={{ color: 'green.200' }} {...props}>
             {props.children}
         </Heading>
     ),
     h3: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
-        <Heading as='h3' size={"2xl"} _dark={{ color: 'yellow.200' }} {...props}>
+        <Heading as='h3' size={"2xl"} _dark={{ color: 'green.200' }} {...props}>
             {props.children}
         </Heading>
     ),
     h4: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
-        <Heading as='h4' size={"xl"} _dark={{ color: 'yellow.200' }} {...props}>
+        <Heading as='h4' size={"xl"} _dark={{ color: 'green.200' }} {...props}>
             {props.children}
         </Heading>
     ),
     h5: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
-        <Heading as='h5' size={"lg"} _dark={{ color: 'yellow.200' }} {...props}>
+        <Heading as='h5' size={"lg"} _dark={{ color: 'green.200' }} {...props}>
             {props.children}
         </Heading>
     ),
