@@ -17,5 +17,5 @@ function sparksToWei(sparks: number): bigint {
 }
 
 export function weiToSparks(wei: bigint): string {
-  return convertEthToSparks(formatEther(wei));
+  return formatEther(wei);
 }

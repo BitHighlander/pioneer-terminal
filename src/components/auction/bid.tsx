@@ -27,7 +27,7 @@ export function AuctionBid(props: BidProps) {
   const address = useDaoAddress();
 
   const account = useAccount();
-  const [bidValue, setBidValue] = useState('111');
+  const [bidValue, setBidValue] = useState('1000');
 
   const useWriteAuctionCreateBid = createUseWriteContract({
     abi: auctionAbi,
@@ -81,26 +81,11 @@ export function AuctionBid(props: BidProps) {
       <HStack mt={4} w={'full'}>
         {isAuctionRunning ? (
           <>
-            <Tooltip showArrow content='Sparks'>
-              <ChakraLink
-                asChild
-                variant={'plain'}
-                fontWeight={'bold'}
-                fontSize={'xl'}
-              >
-                <NextLink
-                  target='_blank'
-                  href={'https://zora.co/writings/sparks'}
-                >
-                  ✧
-                </NextLink>
-              </ChakraLink>
-            </Tooltip>
             <NumberInputRoot
               maxW={{ md: '120px' }}
               w={'full'}
               defaultValue={bidValue}
-              step={111}
+              step={100}
               onValueChange={(datails) => setBidValue(datails.value)}
               disabled={account.isDisconnected}
               min={0}
