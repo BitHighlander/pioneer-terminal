@@ -13,7 +13,7 @@ export const Leaderboard = ({ setPage }:any) => {
                   Top Pioneers are rewarded for their contributions with access to exclusive tools and features. At the heart of Pioneer is an AI-driven system designed to assist and elevate the efforts of our most active members.
               </Text>
 
-              <Table.Root variant="simple" mt={4}>
+              <Table.Root mt={4}>
                   <Table.Header>
                       <Table.Row>
                           <Table.ColumnHeader>Avatar</Table.ColumnHeader>

@@ -76,7 +76,7 @@ export const Assets = ({ setPage }:any) => {
                   Utilize our expansive and dynamic asset database, which extends well beyond conventional coin lists, offering a rich resource for developers and investors alike.
               </Text>
 
-              <Table.Root variant="striped" size="md" mt={4}>
+              <Table.Root size="md" mt={4}>
                   <Table.Header>
                       <Table.Row>
                           <Table.ColumnHeader>Category</Table.ColumnHeader>

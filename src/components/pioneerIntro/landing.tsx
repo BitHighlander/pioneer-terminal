@@ -21,7 +21,7 @@ export function Landing({setPage}:any) {
                         </Text>
                         <br/>
                         <br/>
-                        <VStack spacing={2} align="start" w="full">
+                        <VStack align="start" w="full">
                             <Button w="full" size="lg" colorScheme="green" onClick={handleExploreDapps}>Explore Dapps</Button>
                             <Button w="full" size="lg" colorScheme="green" onClick={handleExploreBlockchains}>Explore Blockchains</Button>
                             <Button w="full" size="lg" colorScheme="green" onClick={handleExploreAssets}>Explore Assets</Button>

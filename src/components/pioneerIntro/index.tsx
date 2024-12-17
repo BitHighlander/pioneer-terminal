@@ -13,7 +13,7 @@ import { Nodes } from './nodes';
 import { Blockchains } from './blockchains';
 import { Landing } from './landing';
 import { Leaderboard } from './leaderboard';
-import ConnectButton from '@/components/layout/Connect-button';
+import ConnectButton from '@/components/layout/connect-button';
 import { useAccount } from 'wagmi';
 
 export function Index() {
@@ -67,12 +67,12 @@ export function Index() {
                   <Text fontWeight="medium">
                       Use {useMainnet ? "Mainnet" : "Base"}
                   </Text>
-                  <Switch
-                    checked={useMainnet}
-                    onCheckedChange={(checked) => setUseMainnet(checked)}
-                  >
-                      Toggle Network
-                  </Switch>
+                  {/*<Switch*/}
+                  {/*  checked={useMainnet}*/}
+                  {/*  onCheckedChange={(checked) => setUseMainnet(checked)}*/}
+                  {/*>*/}
+                  {/*    Toggle Network*/}
+                  {/*</Switch>*/}
               </Flex>
 
               {isConnected && (

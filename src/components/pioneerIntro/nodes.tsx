@@ -17,7 +17,7 @@ export const Nodes = ({ setPage }: any) => {
                   Dive deep into the network with real-time insights:
               </Text>
 
-              <List.Root gap="2" variant="plain" align="flex-start">
+              <List.Root gap="2" variant="plain">
                   <List.Item>
                       <List.Indicator asChild color="green.500">
                           <MdCheckCircle />
@@ -38,7 +38,7 @@ export const Nodes = ({ setPage }: any) => {
                   </List.Item>
               </List.Root>
 
-              <Link href="https://pioneers.dev/docs/" isExternal>
+              <Link href="https://pioneers.dev/docs/">
                   <Button colorScheme="blue" mt={4} size="lg">
                       View API Documentation
                   </Button>

@@ -14,7 +14,7 @@ export const Blockchains = ({ setPage }: any) => {
                   Dive into blockchain technology with Pioneers:
               </Text>
 
-              <List.Root gap="2" variant="plain" align="flex-start" mt={2} mb={3}>
+              <List.Root gap="2" variant="plain" mt={2} mb={3}>
                   <List.Item>
                       <List.Indicator asChild color="green.500">
                           <MdCheckCircle />
