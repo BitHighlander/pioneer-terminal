@@ -35,7 +35,7 @@ export default function Navbar() {
       </Link>
       {isLargerThanMd ? (
         <HStack>
-          <Link href='https://github.com/r4topunk/gnars-terminal'>
+          <Link href='https://github.com/coinmastersguild/pioneer-terminal'>
             <IconButton variant={'ghost'} colorPalette={'black'} size={'sm'}>
               <BsGithub style={{ background: 'none' }} />
             </IconButton>

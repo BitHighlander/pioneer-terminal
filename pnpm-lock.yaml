@@ -23,6 +23,9 @@ importers:
       '@tanstack/react-query':
         specifier: 5.45.1
         version: 5.45.1(react@18.3.1)
+      axios:
+        specifier: ^1.7.9
+        version: 1.7.9
       graphql:
         specifier: ^16.9.0
         version: 16.9.0
